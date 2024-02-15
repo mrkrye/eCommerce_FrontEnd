@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
 import {
-  Button,
   Card,
-  CardActions,
+  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -22,28 +21,24 @@ const Products = () => {
         ) : (
           data.map((itm) => (
             <Grid key={itm.id} item xs={3} md={2.4} lg={2}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  sx={{ height: 140 }}
-                  image={itm.imageUrl}
-                  alt={itm.name}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {itm.name}
-                  </Typography>
-                  <Typography>{itm.price}</Typography>
-                  <Typography gutterBottom>In Stock: {itm.inStock}</Typography>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={() => nav(`/products/${itm.id}`)}
-                    >
-                      See Details
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
+              <CardActionArea onClick={() => nav(`/products/${itm.id}`)}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image={itm.imageUrl}
+                    alt={itm.name}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" component="div">
+                      {itm.name}
+                    </Typography>
+                    <Typography>{itm.price}</Typography>
+                    <Typography gutterBottom>
+                      In Stock: {itm.inStock}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </CardActionArea>
             </Grid>
           ))
         )}
