@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
+import NavBar from "./NavBar";
 
 const Products = () => {
   const nav = useNavigate();
@@ -7,6 +8,7 @@ const Products = () => {
   console.log(data);
   return (
     <>
+    <NavBar/>
       <div className="products">
         {isLoading ? (
           <h1>Loading Products...</h1>
