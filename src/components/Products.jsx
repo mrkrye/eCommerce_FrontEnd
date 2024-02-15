@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
+
+import NavBar from "./NavBar";
+
 import {
   Card,
   CardActionArea,
@@ -13,8 +16,13 @@ const Products = () => {
   const nav = useNavigate();
   const { data, isLoading } = useGetAllProductsQuery();
   console.log(data);
+
   return (
     <>
+
+    <div>
+        <NavBar />
+      </div>
       <Grid container spacing={2}>
         {isLoading ? (
           <h1>Loading Products...</h1>
