@@ -4,9 +4,8 @@ import { useGetAllProductsQuery } from "../redux/api/api";
 import NavBar from "./NavBar";
 
 import {
-  Button,
   Card,
-  CardActions,
+  CardActionArea,
   CardContent,
   CardMedia,
   Grid,
@@ -20,16 +19,17 @@ const Products = () => {
 
   return (
     <>
-      <div>
+
+    <div>
         <NavBar />
       </div>
-      <div className="products">
-        <Grid container spacing={2}>
-          {isLoading ? (
-            <h1>Loading Products...</h1>
-          ) : (
-            data.map((itm) => (
-              <Grid key={itm.id} item xs={3} md={2.4} lg={2}>
+      <Grid container spacing={2}>
+        {isLoading ? (
+          <h1>Loading Products...</h1>
+        ) : (
+          data.map((itm) => (
+            <Grid key={itm.id} item xs={3} md={2.4} lg={2}>
+              <CardActionArea onClick={() => nav(`/products/${itm.id}`)}>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
                     sx={{ height: 140 }}
@@ -44,21 +44,13 @@ const Products = () => {
                     <Typography gutterBottom>
                       In Stock: {itm.inStock}
                     </Typography>
-                    <CardActions>
-                      <Button
-                        size="small"
-                        onClick={() => nav(`/products/${itm.id}`)}
-                      >
-                        See Details
-                      </Button>
-                    </CardActions>
                   </CardContent>
                 </Card>
-              </Grid>
-            ))
-          )}
-        </Grid>
-      </div>
+              </CardActionArea>
+            </Grid>
+          ))
+        )}
+      </Grid>
     </>
   );
 };
