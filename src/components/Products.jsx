@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
-
 import NavBar from "./NavBar";
 
 import {
@@ -51,6 +50,7 @@ const Products = () => {
           ))
         )}
       </Grid>
+
     </>
   );
 };

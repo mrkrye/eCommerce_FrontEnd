@@ -3,3 +3,7 @@
     flex-wrap: wrap;
     place-items: center;
 }
+
+.navbar-container{
+    padding: 10px;
+}
