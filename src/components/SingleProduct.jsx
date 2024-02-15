@@ -36,8 +36,8 @@ function SingleProduct() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" onClick={() => nav("/products")}>
-                Return to All Products
+              <Button size="small" onClick={() => nav(-1)}>
+                Go Back
               </Button>
               <Button size="small">Add to Cart</Button>
             </CardActions>

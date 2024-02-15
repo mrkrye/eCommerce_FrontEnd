@@ -46,4 +46,6 @@ export const {
   useGetProductByIdQuery,
   useRegisterMutation,
   useLoginMutation,
+  useGetAllCategoriesQuery,
+  useGetCategoryByIdQuery,
 } = api;

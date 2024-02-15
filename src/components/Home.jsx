@@ -1,13 +1,16 @@
-import NavBar from "./NavBar";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router";
 
 function Home() {
-
+  const nav = useNavigate();
   return (
     <>
-    <div>
-      <NavBar/>
-    </div>
-      <div>Home</div>
+      <div>
+        <Button onClick={() => nav("/products")}>Shop all Products</Button>
+      </div>
+      <div>
+        <Button onClick={() => nav("/categories")}>Shop by Category</Button>
+      </div>
     </>
   );
 }

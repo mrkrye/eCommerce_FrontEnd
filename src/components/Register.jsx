@@ -1,25 +1,15 @@
-import NavBar from "./NavBar";
+
 import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <div>
-      <NavBar />
-
       <form>
         <h1>Sign Up</h1>
         <div>
-          <input
-            type="text"
-            placeholder="First Name"
-            name="firstname"
-          />
+          <input type="text" placeholder="First Name" name="firstname" />
         </div>
         <div>
-          <input
-            type="text"
-            placeholder="Last Name"
-            name="lastname"
-          />
+          <input type="text" placeholder="Last Name" name="lastname" />
         </div>
         <div>
           <input

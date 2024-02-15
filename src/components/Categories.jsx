@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllProductsQuery } from "../redux/api/api";
+import { useGetAllCategoriesQuery } from "../redux/api/api";
 
 import {
   Card,
@@ -10,19 +10,19 @@ import {
   Typography,
 } from "@mui/material";
 
-const Products = () => {
+const Categories = () => {
   const nav = useNavigate();
-  const { data, isLoading } = useGetAllProductsQuery();
+  const { data, isLoading } = useGetAllCategoriesQuery();
 
   return (
     <>
       <Grid container spacing={2}>
         {isLoading ? (
-          <h1>Loading Products...</h1>
+          <h1>Loading Categories...</h1>
         ) : (
           data.map((itm) => (
             <Grid key={itm.id} item xs={3} md={2.4} lg={2}>
-              <CardActionArea onClick={() => nav(`/products/${itm.id}`)}>
+              <CardActionArea onClick={() => nav(`/categories/${itm.id}`)}>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
                     sx={{ height: 140 }}
@@ -32,10 +32,6 @@ const Products = () => {
                   <CardContent>
                     <Typography gutterBottom variant="h6" component="div">
                       {itm.name}
-                    </Typography>
-                    <Typography>{itm.price}</Typography>
-                    <Typography gutterBottom>
-                      In Stock: {itm.inStock}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -47,4 +43,4 @@ const Products = () => {
     </>
   );
 };
-export default Products;
+export default Categories;
