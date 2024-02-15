@@ -1,5 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 
 const Products = () => {
   const nav = useNavigate();
@@ -7,28 +16,38 @@ const Products = () => {
   console.log(data);
   return (
     <>
-      <div className="products">
+      <Grid container spacing={2}>
         {isLoading ? (
           <h1>Loading Products...</h1>
         ) : (
           data.map((itm) => (
-            <div key={itm.id} className="product-container">
-              <div className="product-image-container">
-                <img src={itm.imageUrl} alt={itm.name} />
-              </div>
-              <div className="product-details">
-                <h1>{itm.name}</h1>
-                <p>{itm.price}</p>
-                <p>{itm.description}</p>
-                <p>{itm.inStock}</p>
-                <button onClick={() => nav(`/products/${itm.id}`)}>
-                  See Details
-                </button>
-              </div>
-            </div>
+            <Grid key={itm.id} item xs={3} md={2.4} lg={2}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  sx={{ height: 140 }}
+                  image={itm.imageUrl}
+                  alt={itm.name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {itm.name}
+                  </Typography>
+                  <Typography>{itm.price}</Typography>
+                  <Typography gutterBottom>In Stock: {itm.inStock}</Typography>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      onClick={() => nav(`/products/${itm.id}`)}
+                    >
+                      See Details
+                    </Button>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Grid>
           ))
         )}
-      </div>
+      </Grid>
     </>
   );
 };
