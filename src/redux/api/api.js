@@ -18,6 +18,12 @@ export const api = createApi({
     getProductById: builder.query({
       query: (id) => "/products/" + id,
     }),
+    getAllCategories: builder.query({
+      query: () => "/categories",
+    }),
+    getCategoryById: builder.query({
+      query: (id) => "/categories/" + id,
+    }),
     register: builder.mutation({
       query: (cred) => ({
         url: "/auth/register",
