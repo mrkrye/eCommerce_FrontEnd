@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 export default function Login() {
   return (
     <>
@@ -26,7 +27,7 @@ export default function Login() {
             />
           </div>
 
-          <button type="submit">Login</button>
+          <Button size="small" type="submit">Login</Button>
 
           <p>
             No account? <Link to="/register">Sign Up</Link>
