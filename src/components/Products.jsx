@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../redux/api/api";
+
+import NavBar from "./NavBar";
+
 import {
   Button,
   Card,
@@ -10,13 +13,19 @@ import {
   Typography,
 } from "@mui/material";
 
+
 const Products = () => {
   const nav = useNavigate();
   const { data, isLoading } = useGetAllProductsQuery();
   console.log(data);
   return (
     <>
+
+    <NavBar/>
+      <div className="products">
+
       <Grid container spacing={2}>
+
         {isLoading ? (
           <h1>Loading Products...</h1>
         ) : (
