@@ -1,11 +1,10 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 export default function Register() {
   return (
     <div>
+      <h1>Sign Up</h1>
       <form>
-        <h1>Sign Up</h1>
         <div>
           <input type="text" placeholder="First Name" name="firstname" />
         </div>
@@ -30,11 +29,13 @@ export default function Register() {
           />
         </div>
 
-        <Button size="small" type="submit">Sign Up</Button>
-        <p>
-          Have an account? <Link to="/login">Login</Link>
-        </p>
+        <Button size="small" type="submit">
+          Sign Up
+        </Button>
       </form>
+      <p>
+        Have an account? <Link to="/login">Login</Link>
+      </p>
     </div>
   );
 }
