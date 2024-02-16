@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import NavBar from "./NavBar";
 
 function SingleProduct() {
   const nav = useNavigate();
@@ -19,6 +20,10 @@ function SingleProduct() {
         {isLoading ? (
           <h1>Loading Product...</h1>
         ) : (
+          <div>
+            <div>
+              <NavBar/>
+            </div>
           <Card sx={{ maxWidth: 750 }}>
             <CardMedia
               sx={{ height: 450 }}
@@ -42,6 +47,7 @@ function SingleProduct() {
               <Button size="small">Add to Cart</Button>
             </CardActions>
           </Card>
+          </div>
         )}
       </div>
     </>
