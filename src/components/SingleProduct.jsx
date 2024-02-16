@@ -7,7 +7,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import NavBar from "./NavBar";
 
 function SingleProduct() {
   const nav = useNavigate();
@@ -21,32 +20,29 @@ function SingleProduct() {
           <h1>Loading Product...</h1>
         ) : (
           <div>
-            <div>
-              <NavBar/>
-            </div>
-          <Card sx={{ maxWidth: 750 }}>
-            <CardMedia
-              sx={{ height: 450 }}
-              image={data.imageUrl}
-              alt={data.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {data.name}
-              </Typography>
-              <Typography>{data.price}</Typography>
-              <Typography gutterBottom>In Stock: {data.inStock}</Typography>
-              <Typography variant="body2" color="text.secondary">
-                {data.description}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" onClick={() => nav(-1)}>
-                Go Back
-              </Button>
-              <Button size="small">Add to Cart</Button>
-            </CardActions>
-          </Card>
+            <Card sx={{ maxWidth: 750 }}>
+              <CardMedia
+                sx={{ height: 450 }}
+                image={data.imageUrl}
+                alt={data.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {data.name}
+                </Typography>
+                <Typography>{data.price}</Typography>
+                <Typography gutterBottom>In Stock: {data.inStock}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {data.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" onClick={() => nav(-1)}>
+                  Go Back
+                </Button>
+                <Button size="small">Add to Cart</Button>
+              </CardActions>
+            </Card>
           </div>
         )}
       </div>
