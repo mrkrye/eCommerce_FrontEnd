@@ -9,6 +9,9 @@ import SingleCategory from "./components/SingleCategory";
 import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import Layout from "./components/Layout"
+import Admin from "./components/Admin";
+import Missing from "./components/Missing";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -20,7 +23,7 @@ function App() {
         <Routes>
           <Route path={"/"} element={<Layout />}>
             {/* {public routes} */}
-            <Route path="/" elements={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/products" element={<Products />} />
@@ -29,11 +32,13 @@ function App() {
             <Route path="/categories/:id" element={<SingleCategory />} />
             <Route path="/cart" element={<Cart />} />
 
-            {/* {Protected Paths} */}
+            {/* Protected route */}
+            <Route path={"/Admin"} allowedRoles={["admin"]}element={<Admin />}>
 
-
+              </Route>
+            
             {/* {Catch all} */}
-            {/* <Route path="*" element={<Missing />} /> */}
+            <Route path="*" element={<Missing />} />
           </Route>
         </Routes>
       </div>
