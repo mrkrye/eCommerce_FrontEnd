@@ -23,7 +23,8 @@ export default function Register() {
     <Box sx={{ display: "flex", flexWrap: "wrap", textAlign: "center" }}>
       <div>
         <h1>Register</h1>
-        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+        <form >
+           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">
             First Name
           </InputLabel>
@@ -72,6 +73,8 @@ export default function Register() {
             Have an account? <Link to="/login">Login</Link>
           </p>
         </FormControl>
+        </form>
+       
       </div>
     </Box>
   );

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
-import { useGetProductByIdQuery } from "../redux/api/api";
+import { useGetProductByIdQuery } from "../redux/api/productsApi";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
