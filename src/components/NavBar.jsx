@@ -25,7 +25,7 @@ export default function NavBar() {
           <Button color="inherit" onClick={() => nav("/categories")}>
             Categories
           </Button>
-          <Button color="inherit" onClick={() => nav("/login")}>
+          <Button color="inherit" onClick={() => nav("/auth/login")}>
             Login
           </Button>
           <Button color="inherit" onClick={() => nav("/users")}>

@@ -16,11 +16,11 @@ function Users() {
           <TableHead>
             <TableRow>
               <TableCell>Id</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>First Name</TableCell>
-              <TableCell>Last Name</TableCell>
-              <TableCell>Password</TableCell>
-              <TableCell>is Admin?</TableCell>
+              <TableCell align="right">Email</TableCell>
+              <TableCell align="right">First Name</TableCell>
+              <TableCell align="right">Last Name</TableCell>
+              <TableCell align="right">Password</TableCell>
+              <TableCell align="right">is Admin?</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
