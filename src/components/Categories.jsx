@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllCategoriesQuery } from "../redux/api/api";
-
+import { useGetAllCategoriesQuery } from "../redux/api/categoryApi";
 import {
   Card,
   CardActionArea,
