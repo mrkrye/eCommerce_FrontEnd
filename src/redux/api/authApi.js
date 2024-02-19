@@ -37,7 +37,7 @@ export const authApi = createApi({
         },
       }),
     }),
-    /*This route returns a list of books the current user has checked out.
+    /*This route returns a list of products the current user has checked out.
     You must pass a valid token with this request, or it will be rejected.*/
     reserveProduct: builder.query({
       query: (token) => ({
@@ -49,7 +49,7 @@ export const authApi = createApi({
         },
       }),
     }),
-    /*A request to this endpoint will attempt to delete an existing reservation and update a book's availability.
+    /*A request to this endpoint will attempt to delete an existing reservation and update a products' availability.
     You must pass a valid token with this request, or it will be rejected.*/
     deleteProduct: builder.mutation({
       query: ({ token, id }) => ({

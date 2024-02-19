@@ -17,16 +17,14 @@ import Users from "./components/Users";
 function App() {
   return (
     <>
-      <div>
         <NavBar />
-      </div>
       <div>
         <Routes>
           <Route path={"/"} element={<Layout />}>
             {/* {public routes} */}
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/login" element={<Login />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<SingleProduct />} />
             <Route path="/categories" element={<Categories />} />
