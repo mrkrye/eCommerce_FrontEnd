@@ -8,22 +8,21 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { useUpdateProductMutation } from "../redux/api/productsApi";
 // import { useState } from "react";
 
 const Products = () => {
-  const { products } = useSelector((state) => state.productsSlice);
-  console.log(products);
+  // const { products } = useSelector((state) => state.productsSlice);
+  // console.log(products);
   // const {token} = useSelector((state) => state.authSlice)
   // const [updateProduct] = useUpdateProductMutation();
   // const [filteredData, setFilteredData] = useState(products)
   const navigate = useNavigate();
   const { data, isLoading } = useGetAllProductsQuery();
-
   return (
     <>
-    <input type="text" />
+      <input type="text" />
       <Grid container spacing={2}>
         {isLoading ? (
           <h1>Loading Products...</h1>

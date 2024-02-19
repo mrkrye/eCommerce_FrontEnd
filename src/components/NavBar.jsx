@@ -8,31 +8,32 @@ export default function NavBar() {
   const nav = useNavigate();
 
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }} margin="0px 0px 20px">
-        <AppBar position="fixed">
-          <Toolbar>
-            <Button
-              variant="h6"
-              component="div"
-              edge="start"
-              onClick={() => nav("/")}
-            >
-              Grocery Store
-            </Button>
-            <Button color="inherit" onClick={() => nav("/products")}>
-              Products
-            </Button>
-            <Button color="inherit" onClick={() => nav("/categories")}>
-              Categories
-            </Button>
-            <Button color="inherit" onClick={() => nav("/auth/login")}>
-              Login
-            </Button>
-            <CartBadge />
-          </Toolbar>
-        </AppBar>
-      </Box>
-    </div>
+    <Box sx={{ flexGrow: 1 }} margin="0px 0px 20px">
+      <AppBar position="static">
+        <Toolbar>
+          <Button
+            variant="h6"
+            component="div"
+            edge="start"
+            onClick={() => nav("/")}
+          >
+            Grocery Store
+          </Button>
+          <Button color="inherit" onClick={() => nav("/products")}>
+            Products
+          </Button>
+          <Button color="inherit" onClick={() => nav("/categories")}>
+            Categories
+          </Button>
+          <Button color="inherit" onClick={() => nav("/login")}>
+            Login
+          </Button>
+          <Button color="inherit" onClick={() => nav("/users")}>
+            Users
+          </Button>
+          <CartBadge />
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }

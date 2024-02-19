@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { categoryApi } from "../api/categoryApi";
+import { categoriesApi } from "../api/categoriesApi";
 
 const categoriesSlice = createSlice({
   name: "category",
   initialState: [],
   extraReducers: (builder) => {
     builder.addMatcher(
-      categoryApi.endpoints.getAllCategories.matchFulfilled,
+      categoriesApi.endpoints.getAllCategories.matchFulfilled,
       (state, { payload }) => {
         return payload;
       }

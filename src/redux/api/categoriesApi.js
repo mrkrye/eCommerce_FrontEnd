@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const categoryApi = createApi({
-  reducerPath: "categoryApi",
+export const categoriesApi = createApi({
+  reducerPath: "categoriesApi",
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_URL || "http://localhost:3000",
   }),
@@ -18,4 +18,4 @@ export const categoryApi = createApi({
 });
 
 export const { useGetAllCategoriesQuery, useGetCategoryByIdQuery } =
-  categoryApi;
+  categoriesApi;
