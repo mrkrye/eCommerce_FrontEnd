@@ -33,12 +33,14 @@ function App() {
             <Route path="/cart" element={<Cart />} />
 
             {/* Protected route */}
-            <Route path={"/Admin"} allowedRoles={["admin"]}element={<Admin />}>
+            <Route element={<ProtectedRoute />}>
+            <Route path={"/Admin"} allowedRoles={["admin"]}element={<Admin />} />
+            </Route>
 
-              </Route>
+              
             
             {/* {Catch all} */}
-            <Route path="*" element={<Missing />} />
+            {/* <Route path="*" element={<Missing />} /> */}
           </Route>
         </Routes>
       </div>
