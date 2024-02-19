@@ -14,7 +14,6 @@ import { useRegisterMutation } from "../redux/api/authApi";
 import { useState } from "react";
 
 export default function Register() {
-
   // const [showPassword, setShowPassword] = React.useState(false);
   // const handleClickShowPassword = () => setShowPassword((show) => !show);
   // const handleMouseDownPassword = (event) => {
@@ -39,7 +38,7 @@ export default function Register() {
     const results = addNewUser(form);
     console.log(results);
     navigate("/auth/login");
-
+  };
 
   return (
     // <Box sx={{ display: "flex", flexWrap: "wrap", textAlign: "center" }}>

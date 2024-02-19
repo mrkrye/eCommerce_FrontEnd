@@ -32,7 +32,7 @@ const Products = () => {
               <CardActionArea onClick={() => navigate(`/products/${itm.id}`)}>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{ height: 300 }}
                     image={itm.imageUrl}
                     alt={itm.name}
                   />
