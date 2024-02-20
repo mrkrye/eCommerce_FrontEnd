@@ -5,6 +5,8 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store/store.js";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -6,3 +6,28 @@
   margin-top: 70px;
 }
 
+.logo {
+  width: 111px;
+}
+
+.form {
+  width: 50%;
+  display: grid;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form button {
+  width: 30%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.loginPage {
+  display: grid;
+  justify-items: center;
+}
+
+.loading_logo {
+  width: 100%;
+}
