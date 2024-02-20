@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { productsApi } from "../api/productsApi";
 import { authApi } from "../api/authApi";
+
 /*Requires authentication via token to be passed through the api*/
 const authSlice = createSlice({
   name: "authSlice",
