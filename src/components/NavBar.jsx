@@ -9,7 +9,7 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }} margin="0px 0px 20px">
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Button
             variant="h6"
