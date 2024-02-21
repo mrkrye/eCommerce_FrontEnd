@@ -10,9 +10,10 @@ import NavBar from "./components/NavBar";
 import Cart from "./components/Cart";
 import Layout from "./components/Layout";
 import Admin from "./components/Admin";
+import Missing from "./components/Missing"
 // import Missing from "./components/Missing";
 import ProtectedRoute from "./components/ProtectedRoute";
-import ManageUsers from "./components/ManageUsers";
+import ManageUsers from "./components/users/ManageUsers";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path={"/"} element={<Layout />}>
             {/* {public routes} */}
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<Missing />} />
             <Route path="/auth/register" element={<Register />} />
             <Route path="/auth/login" element={<Login />} />
             <Route path="/products" element={<Products />} />

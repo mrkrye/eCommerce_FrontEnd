@@ -25,10 +25,10 @@ export default function Login() {
   };
 
    useEffect(() => {
-     const cart = () => {
-       navigate("/cart");
+     const success = () => {
+       navigate("/home");
      };
-     if (token) cart();
+     if (token) success();
    }, [token, navigate]);
 
   return (

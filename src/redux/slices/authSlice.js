@@ -53,15 +53,15 @@ const authSlice = createSlice({
         };
       }
     );
-    builder.addMatcher(
-      authApi.endpoints.deleteProduct.matchFulfilled,
-      (state, { payload }) => {
-        state.user.products = state.user.products.filter(
-          (product) => product.id !== payload.deletedReservation.id
-        );
-        return state;
-      }
-    );
+    // builder.addMatcher(
+    //   authApi.endpoints.deleteProduct.matchFulfilled,
+    //   (state, { payload }) => {
+    //     state.user.products = state.user.products.filter(
+    //       (product) => product.id !== payload.deletedReservation.id
+    //     );
+    //     return state;
+    //   }
+    // );
   },
 });
 

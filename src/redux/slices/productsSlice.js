@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { productsApi } from "../api/productsApi";
-import { authApi } from "../api/authApi";
 
 const productsSlice = createSlice({
   name: "productsSlice",
@@ -38,41 +37,8 @@ const productsSlice = createSlice({
         return state;
       }
     );
-    builder.addMatcher(
-      authApi.endpoints.deleteProduct.matchFulfilled,
-      (state, { payload }) => {
-        state.products = state.products.map((product) => {
-          return product.id === payload.deletedReservation.productid
-            ? { ...product, available: true }
-            : product;
-        });
-        return state;
-      }
-    );
   },
 });
 
 export default productsSlice.reducer;
 
-// import { createSlice } from "@reduxjs/toolkit";
-// import { productsApi } from "../api/productsApi";
-
-// const productsSlice = createSlice({
-//   name: "product",
-//   initialState: {
-//     products: {},
-//     product: null
-// },
-//   extraReducers: (builder) => {
-//     builder.addMatcher(
-//       productsApi.endpoints.getAllProducts.matchFulfilled,
-//       (state, { payload }) => {
-//         return {
-//           ...state, products: payload
-//         }
-//       }
-//     );
-//   },
-// });
-
-// export default productsSlice.reducer;
