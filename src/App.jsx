@@ -12,12 +12,12 @@ import Layout from "./components/Layout";
 import Admin from "./components/Admin";
 // import Missing from "./components/Missing";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Users from "./components/Users";
+import ManageUsers from "./components/ManageUsers";
 
 function App() {
   return (
     <>
-        <NavBar />
+      <NavBar />
       <div>
         <Routes>
           <Route path={"/"} element={<Layout />}>
@@ -30,7 +30,7 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/categories/:id" element={<SingleCategory />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/users" element={<ManageUsers />} />
 
             {/* Protected route */}
             <Route element={<ProtectedRoute />}>
