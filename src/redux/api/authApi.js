@@ -29,7 +29,7 @@ export const authApi = createApi({
     You must pass a valid token with this request, or it will be rejected.*/
     getUser: builder.query({
       query: (token) => ({
-        url: "/users",
+        url: "/user",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -64,4 +64,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const { useRegisterMutation, useLoginMutation, useGetUserQuery, useReserveProductQuery, useDeleteProductMutation } = authApi;
