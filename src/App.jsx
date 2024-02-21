@@ -30,7 +30,7 @@ function App() {
             <Route path="/categories" element={<Categories />} />
             <Route path="/categories/:id" element={<SingleCategory />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/admin/dashboard" element={<ManageUsers />} />
+            <Route path="/users" element={<ManageUsers />} />
 
             {/* Protected route */}
             <Route element={<ProtectedRoute />}>

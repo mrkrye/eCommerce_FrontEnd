@@ -1,26 +1,13 @@
-// import * as React from "react";
-// import Table from "@mui/material/Table";
-// import TableBody from "@mui/material/TableBody";
-// import TableCell from "@mui/material/TableCell";
-// import TableContainer from "@mui/material/TableContainer";
-// import TableHead from "@mui/material/TableHead";
-// import TableRow from "@mui/material/TableRow";
-// import Paper from "@mui/material/Paper";
-// import {
-// useDeleteUserMutation,
-// useGetAllUsersQuery,
-// useUpdateUserMutation,
-// } from "../redux/api/usersApi";
-// import { Button, Switch } from "@mui/material";
-// import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { useMemo } from "react";
-import { useGetAllUsersQuery } from "../redux/api/usersApi";
+import { useMemo, useState } from "react";
+import { useGetAllUsersQuery } from "../../redux/api/usersApi";
 import moment from "moment";
+import UsersActions from "./UsersActions";
 
 function ManageUsers() {
   const { data, isLoading, error } = useGetAllUsersQuery();
+  const [rowId, setRowId] = useState(null);
   console.log(data);
 
   const columns = useMemo(
@@ -52,8 +39,16 @@ function ManageUsers() {
           moment(params.row.createdAt).format("YYYY-MM-DD, HH:mm:ss"),
       },
       { field: "updatedAt", headerName: "Updated At:", width: 100 },
+      {
+        field: "actions",
+        headerName: "Actions",
+        type: "actions",
+        renderCell: (params) => (
+          <UsersActions {...{ params, rowId, setRowId }} />
+        ),
+      },
     ],
-    []
+    [rowId]
   );
   if (isLoading) {
     return <div>Loading Users...</div>;
@@ -79,7 +74,11 @@ function ManageUsers() {
             pagination: { paginationModel: { page: 0, pageSize: 5 } },
           }}
           pageSizeOptions={[5, 10]}
-          checkboxSelection
+          getRowSpacing={(params) => ({
+            top: params.isFirstVisible ? 0 : 5,
+            bottom: params.isLastVisible ? 0 : 5,
+          })}
+          onCellEditCommit={(params) => setRowId(params.id)}
         />
       </Box>
     </>

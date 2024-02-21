@@ -28,7 +28,7 @@ export default function NavBar() {
           <Button color="inherit" onClick={() => nav("/auth/login")}>
             Login
           </Button>
-          <Button color="inherit" onClick={() => nav("/admin/dashboard")}>
+          <Button color="inherit" onClick={() => nav("/users")}>
             Dashboard
           </Button>
           <CartBadge />
