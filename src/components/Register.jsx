@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../redux/api/authApi";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+// import { useSelector } from "react-redux";
+// import { useEffect } from "react";
 
 export default function Register() {
-    const { token } = useSelector((state) => state.authSlice);
+    // const { token } = useSelector((state) => state.authSlice);
   const [addNewUser] = useRegisterMutation();
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -26,16 +26,16 @@ export default function Register() {
     navigate("/auth/login");
   };
 
-   useEffect(() => {
-     const cart = () => {
-       navigate("/auth/login");
-     };
-     if (token) cart();
-   }, [token, navigate]);
+  //  useEffect(() => {
+  //    const cart = () => {
+  //      navigate("/auth/login");
+  //    };
+  //    if (token) cart();
+  //  }, [token, navigate]);
 
   return (
     <div className="loginPage">
-      {!token && (
+      {/* {!token && ( */}
         <form onSubmit={onSubmit} className="form">
           <h1 className="display-2">Sign Up</h1>
           <div className="form-group mb-2">
@@ -86,7 +86,7 @@ export default function Register() {
             Have an account? <Link to={"/auth/login"}>Login</Link>
           </p>
         </form>
-      )}
+      {/* )} */}
     </div>
   );
 }
