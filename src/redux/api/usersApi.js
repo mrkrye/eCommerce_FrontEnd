@@ -12,7 +12,33 @@ export const usersApi = createApi({
     getUserById: builder.query({
       query: (id) => `/users/${id}`,
     }),
+    updateUser: builder.mutation({
+      query: ({ id, body, token }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: body,
+      }),
+    }),
+    deleteUser: builder.mutation({
+      query: ({ token, id }) => ({
+        url: `/users/${id}`,
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetAllUsersQuery, useGetUserByIdQuery } = usersApi;
+export const {
+  useGetAllUsersQuery,
+  useGetUserByIdQuery,
+  useUpdateUserMutation,
+  useDeleteUserMutation,
+} = usersApi;
