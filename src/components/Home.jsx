@@ -13,11 +13,6 @@ function Home() {
         />
       </div>
       <div>
-        <video width="750" height="500" controls>
-          <source src={"https://cdn.leonardo.ai/users/2ca1195f-47ce-42dd-9179-f8d8269808f8/generations/e2abf5e7-c4bf-4926-8ca6-ce4f5cc8b3e2/e2abf5e7-c4bf-4926-8ca6-ce4f5cc8b3e2.mp4"} type="video/mp4" />
-        </video>
-      </div>
-      <div>
         <Button onClick={() => nav("/products")}>Shop all Products</Button>
       </div>
       <div>

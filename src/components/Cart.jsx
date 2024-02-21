@@ -1,81 +1,76 @@
-// import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import {
-//   useGetAllOrdersQuery,
-//   useDeleteProductMutation,
-// } from "../redux/api/ordersApi";
-// import {
-//   Card,
-//   CardContent,
-//   CardMedia,
-//   Grid,
-//   Typography,
-//   Button,
-// } from "@mui/material";
-
-// const Cart = () => {
-//   const navigate = useNavigate();
-//   const [orders, setOrders] = useState([]);
-//   const { data, isLoading } = useGetAllOrdersQuery();
-//   const [deleteProduct] = useDeleteProductMutation();
-//   useEffect(() => {
-//     if (!isLoading) {
-//       setOrders(data);
-//     }
-//   }, [data, isLoading]);
-//   const handleDelete = async (orderId) => {
-//     try {
-//       await deleteProduct({ token: "token", id: orderId });
-//       setOrders(orders.filter((order) => order.id !== orderId));
-//     } catch (error) {
-//       console.error("Error deleting product:", error);
-//     }
-//   };
-//   return (
-//     <>
-//       <h1>Your Cart</h1>
-//       {isLoading ? (
-//         <h2>Loading...</h2>
-//       ) : (
-//         <Grid container spacing={2}>
-//           {orders.map((order) => (
-//             <Grid key={order.id} item xs={12} md={6} lg={4}>
-//               <Card>
-//                 <CardMedia
-//                   component="img"
-//                   height="140"
-//                   image={order.product.imageUrl}
-//                   alt={order.product.name}
-//                 />
-//                 <CardContent>
-//                   <Typography gutterBottom variant="h5" component="div">
-//                     {order.product.name}
-//                   </Typography>
-//                   <Typography variant="body2" color="text.secondary">
-//                     Price: {order.product.price}
-//                   </Typography>
-//                   <Typography variant="body2" color="text.secondary">
-//                     Quantity: {order.quantity}
-//                   </Typography>
-//                   <Button onClick={() => handleDelete(order.id)}>
-//                     Remove from Cart
-//                   </Button>
-//                 </CardContent>
-//               </Card>
-//             </Grid>
-//           ))}
-//         </Grid>
-//       )}
-//       <Button onClick={() => navigate("/checkout")}>Proceed to Checkout</Button>
-//     </>
-//   );
-// };
-// export default Cart;
-
-
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useGetUserQuery } from "../redux/api/authApi";
+import { useDeleteProductMutation } from "../redux/api/ordersApi";
+import { useNavigate } from "react-router";
 
 export default function Cart() {
+  const { token, user } = useSelector((state) => state.authSlice);
+  const [deleteProduct] = useDeleteProductMutation();
+  const navigate = useNavigate();
+
+  const check = () => {
+    useEffect(() => {
+      navigate("/auth/login");
+    }, []);
+  };
+  if (!token) check();
+  if (token) {
+    useGetUserQuery(token, { refetchOnMountOrArgChange: true });
+  }
+
+  const [data, setData] = useState(user);
+  const removeProduct = async (e) => {
+    await deleteProduct({ token: token, id: e.target.id });
+    setData([]);
+  };
+  console.log(user)
   return (
-    <div>Cart</div>
-  )
+    token &&
+    user && (
+      <div>
+        <div>
+          <blockquote className="blockquote text-center">
+            <p className="mb-2">
+              Welcome to your cart!
+              <br />
+              {user.email}
+            </p>
+          </blockquote>
+        </div>
+        <div className="bookBody">
+          {!user.length && (
+            <div style={{ display: "grid", justifyItems: "center" }}>
+              <h1 className="display-3">Cart is Empty</h1>
+            </div>
+          )}
+          {
+            !user.map((itm) => {
+              return (
+                <div key={itm.id} className="card">
+                  <img
+                    src={itm.coverimage}
+                    className="card-img-top"
+                    alt={itm.title}
+                  />
+                  <div className="card-body">
+                    <p className="card-text">ID: {itm.id}</p>
+                    <p className="card-text">{itm.firstName}</p>
+                    <p className="card-text">{itm.lastName}</p>
+                  </div>
+                  <button
+                    id={itm.id}
+                    className="btn btn-danger"
+                    onClick={removeProduct}
+                  >
+                    Remove
+                  </button>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    )
+  );
 }
