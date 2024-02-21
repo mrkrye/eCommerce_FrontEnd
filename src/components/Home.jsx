@@ -6,10 +6,16 @@ function Home() {
   return (
     <>
       <div>
-        <img id="home_img"
-          src="https://cdn.leonardo.ai/users/2ca1195f-47ce-42dd-9179-f8d8269808f8/generations/fbc9a475-65a5-4db8-8d99-814fe4f81b3b/Default_Ketch_up_as_a_grocery_photo_0.jpg"
+        <img
+          id="home_img"
+          src="https://cdn.leonardo.ai/users/2ca1195f-47ce-42dd-9179-f8d8269808f8/generations/191bf827-1c1f-42a6-8c26-59e35f7169b0/Default_Goku_holding_carrots_0.jpg"
           alt="landing_page_pic"
         />
+      </div>
+      <div>
+        <video width="750" height="500" controls>
+          <source src={"https://cdn.leonardo.ai/users/2ca1195f-47ce-42dd-9179-f8d8269808f8/generations/e2abf5e7-c4bf-4926-8ca6-ce4f5cc8b3e2/e2abf5e7-c4bf-4926-8ca6-ce4f5cc8b3e2.mp4"} type="video/mp4" />
+        </video>
       </div>
       <div>
         <Button onClick={() => nav("/products")}>Shop all Products</Button>

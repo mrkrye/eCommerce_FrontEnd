@@ -29,7 +29,7 @@ export const authApi = createApi({
     You must pass a valid token with this request, or it will be rejected.*/
     getUser: builder.query({
       query: (token) => ({
-        url: "/user",
+        url: "/users",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -43,18 +43,6 @@ export const authApi = createApi({
       query: (token) => ({
         url: "/orders",
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }),
-    }),
-    /*A request to this endpoint will attempt to delete an existing reservation and update a products' availability.
-    You must pass a valid token with this request, or it will be rejected.*/
-    deleteProduct: builder.mutation({
-      query: ({ token, id }) => ({
-        url: `/orders/${id}`,
-        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

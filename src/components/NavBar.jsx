@@ -54,6 +54,13 @@ export default function NavBar() {
               </Button>
             )}
           </a>
+          {/* <a>
+            {token && (
+              <Button color="inherit" onClick={() => navigate("/Admin")}>
+                Admin
+              </Button>
+            )}
+          </a> */}
           <a>
             {token && (
               <Button

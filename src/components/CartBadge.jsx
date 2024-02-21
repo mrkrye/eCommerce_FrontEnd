@@ -17,7 +17,7 @@ function CartBadge() {
   return (
     <div>
       <IconButton aria-label="cart" onClick={() => nav("/cart")}>
-        <StyledBadge badgeContent={4} color="secondary">
+        <StyledBadge badgeContent={0} color="secondary">
           <ShoppingCartIcon />
         </StyledBadge>
       </IconButton>
