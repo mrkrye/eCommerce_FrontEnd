@@ -1,5 +1,5 @@
 # Frontend
-npm run dev: This will start the frontend React Application on http://localhost:5173/, but check your terminal after running the command to verify.
+* npm run dev: This will start the frontend React Application on http://localhost:5173/, but check your terminal after running the command to verify.
 
 
 
