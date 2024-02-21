@@ -17,4 +17,5 @@ const ordersSlice = createSlice({
   },
 });
 
+export const { addToCart } = ordersSlice.actions;
 export default ordersSlice.reducer;

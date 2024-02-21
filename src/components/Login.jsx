@@ -26,7 +26,7 @@ export default function Login() {
 
    useEffect(() => {
      const success = () => {
-       navigate("/home");
+       navigate("/");
      };
      if (token) success();
    }, [token, navigate]);
